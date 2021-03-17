@@ -57,7 +57,7 @@ class CarController extends Controller
     {
         //
 
-        return view('cars.show')->with($car);
+        return view('cars.show')->with('car', $car);
     }
 
     /**
