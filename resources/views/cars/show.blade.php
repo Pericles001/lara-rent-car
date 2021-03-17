@@ -29,14 +29,14 @@
             <div class="border border-primary">
 
                 <h3 class="card-header">{{ $car->marque }}</h3>
-                <div class="card-img-top"> 
-                    <img src="{{ $car->image }}"   alt="" class="img-fluid m-2 rounded">
-                        
+                <div class="card-img-top">
+                    <img src="{{ $car->image }}" alt="" class="img-fluid m-2 rounded">
+
                 </div>
                 <div class="card-body">
 
                     <div class="media mb-2 ">
-                       
+
 
                         <div class="media-body">
                             <h3 class="text-info">
@@ -59,9 +59,21 @@
                                     Prix Journée :<span class="badge bg-secondary"> {{ $car->prixJ }} £</span>
                                 </button>
                                 @if ($car->dispo)
-                                    <button type="button" class="btn btn-success">
-                                        Disponible<span class="badge bg-success"></span>
-                                    </button>
+                                    @auth
+                                        <p>
+                                            <a type="button" href="#" class="btn btn-primary">
+                                                Reserver
+                                            </a>
+
+                                        </p>
+
+                                    @else <p>
+                                            <a type="button" href="#" class="btn btn-primary">
+                                                Reserver
+                                            </a>
+
+                                    </p>
+                                    @endauth
                                 @else
                                     <button type="button" class="btn btn-warning">
                                         Reservé<span class="badge bg-warning"></span>
