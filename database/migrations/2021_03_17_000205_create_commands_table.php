@@ -15,12 +15,12 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('user_id');
-            $table->bigIncrements('car_id');
+            $table->integer('user_id');
+            $table->integer('car_id');
             $table->datetime('dateL');
             $table->datetime('dateR');
             $table->string('prixTTC');
-            $table->string('notes');
+            $table->text('notes');
             $table->timestamps();
         });
     }

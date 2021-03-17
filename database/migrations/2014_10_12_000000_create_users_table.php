@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('tel');
             $table->string('ville');
             $table->string('image')->default("http://lorempixel.com/200/200/");
-            $table->string('email')->unique();
+            $table->string('email', 191)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
