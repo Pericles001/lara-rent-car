@@ -16,7 +16,10 @@ class CarController extends Controller
     {
 
   //
-         return view('cars.index')->with(['cars'=>Car::whereDispo(1)->get()]);
+         return view('cars.index')->with([
+             'cars'=>Car::all(),
+             'carsDispo'=>Car::whereDispo(1)->get()
+             ]);
 
 
 

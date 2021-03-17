@@ -32,7 +32,7 @@
         <div class="card-body">
            @foreach($cars as $car)
 
-           <div class="media">
+           <div class="media mb-2 ">
             <div class="media-left">
                 <img src="{{$car->image}}"  width="100" height="100"  alt="" class="img-fluid rounded-circle">
             </div>
@@ -62,7 +62,7 @@
                 </p>
             </div>
             </div>
-
+<hr>
 
            @endforeach
 
