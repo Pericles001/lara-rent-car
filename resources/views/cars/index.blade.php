@@ -34,28 +34,29 @@
 
            <div class="media">
             <div class="media-left">
-                <img src="{{$car->image}}"    alt="" class="img-fluid rounded-circle">
+                <img src="{{$car->image}}"  width="100" height="100"  alt="" class="img-fluid rounded-circle">
             </div>
 
 
             <div  class="media-body">
                 <h3 class="text-info">
                     <a id="myLink" href="" class="btn btn-link">
-                        {{$car->marque}}
-
+                        <button type="button" class="btn btn-primary">
+                            Marque :<span class="badge bg-primary"> {{$car->marque}}</span>
+                           </button>
                     </a>
                 </h3>
 
 
 
 
-                 <p class="d-flex flex-row justify-content-between align-items-center">
+                 <p class="d-flex flex-row justify-content-start">
 
-                <button type="button" class="btn btn-primary">
-                    Type <span class="badge bg-secondary"> {{$car->type}}</span>
+                <button type="button" class="btn btn-success mx-3">
+                    Type :<span class="badge bg-success "> {{$car->type}}</span>
                    </button>
                     <button type="button" class="btn btn-danger">
-                  Prix<span class="badge bg-secondary">  {{$car->prixJ}}</span>
+                  Prix Journée :<span class="badge bg-secondary">  {{$car->prixJ}} £</span>
                    </button>
 
                 </p>

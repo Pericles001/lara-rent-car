@@ -14,8 +14,12 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
-        return view('cars.index')->with(['cars'=>Car::whereDispo(1)->get()]);
+
+  //
+         return view('cars.index')->with(['cars'=>Car::whereDispo(1)->get()]);
+
+
+
     }
 
     /**
@@ -56,7 +60,7 @@ class CarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-      * @param  \App\Models\Car  $car
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
     public function edit(Car $car)
