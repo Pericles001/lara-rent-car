@@ -3,7 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Command;
+use App\Models\Car;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 class CommandFactory extends Factory
 {
@@ -22,7 +25,12 @@ class CommandFactory extends Factory
     public function definition()
     {
         return [
-            //
-        ];
+            'user_id' => User::pluck('id')->random(),
+            'car_id' =>Car::pluck('id')->random(),
+            'dateL' => $this->faker->dateTime(),
+            'dateR' =>  $this->faker->dateTime(),
+            'prixTTC' => $this->faker->randomDigit(1000, 5000),
+            'notes' =>  $this->faker->sentences(rand(1, 2))
+            ];
     }
 }

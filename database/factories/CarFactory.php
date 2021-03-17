@@ -22,7 +22,12 @@ class CarFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'marque' => $this->faker->company,
+            'model' =>$this->faker->year,
+            'type' => $this->faker->word,
+            'prixJ' =>  $this->faker->randomNumber(),
+            'dispo' => $this->faker->randomDigit(0, 1),
+
         ];
     }
 }
