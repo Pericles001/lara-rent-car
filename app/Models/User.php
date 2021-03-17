@@ -40,4 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+public function commands(){
+    return $this->hasMany(Command::class)->order_by('created_at', 'DESC');
+}
+
+
 }

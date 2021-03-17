@@ -15,6 +15,7 @@ class CommandController extends Controller
     public function index()
     {
         //
+        return view('commands.index')->with(['commands' => Command::all()]);
     }
 
     /**
@@ -47,6 +48,7 @@ class CommandController extends Controller
     public function show(Command $command)
     {
         //
+        return view('commands.show')->with($command);
     }
 
     /**
