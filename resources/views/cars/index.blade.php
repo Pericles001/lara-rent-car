@@ -38,21 +38,26 @@
             </div>
 
 
-            <div class="media-body">
+            <div  class="media-body">
                 <h3 class="text-info">
-                    <a href="" class="btn btn-link">
+                    <a id="myLink" href="" class="btn btn-link">
                         {{$car->marque}}
 
                     </a>
                 </h3>
-                
+
+
+
+
                  <p class="d-flex flex-row justify-content-between align-items-center">
-                    <span class="badge badge-danger">
-                        {{$car->type}}
-                    </span>
-                    <span class="badge badge-primary">
-                        {{$car->prixJ}}
-                    </span>
+
+                <button type="button" class="btn btn-primary">
+                    Type <span class="badge bg-secondary"> {{$car->type}}</span>
+                   </button>
+                    <button type="button" class="btn btn-danger">
+                  Prix<span class="badge bg-secondary">  {{$car->prixJ}}</span>
+                   </button>
+
                 </p>
             </div>
             </div>
