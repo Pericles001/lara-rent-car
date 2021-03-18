@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','App\Http\Controllers\CarController@index');
+Route::get('/','App\Http\Controllers\CarController@index')->name('index');
 Route::resource('/cars','App\Http\Controllers\CarController');
 Route::get('/login','App\Http\Controllers\UsersController@login')->name('users.login');
 Route::post('/auth','App\Http\Controllers\UsersController@auth')->name('users.auth');
 Route::post('/logout','App\Http\Controllers\UsersController@logout')->name('users.logout');
+Route::get('/register','App\Http\Controllers\UsersController@create')->name('users.create');
 Route::post('/register','App\Http\Controllers\UsersController@register')->name('users.register');
 

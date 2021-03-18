@@ -11,6 +11,13 @@ class UsersController extends Controller
 {
     //
 
+
+public function create(){
+    return view('users.register');
+}
+
+
+
 public function register(Request $request){
 
     $this->validate($request, [
@@ -21,13 +28,13 @@ public function register(Request $request){
         'ville' => 'required'
     ]);
 
-User::create([
-   'name' => $request->name ,
-   'email' => $request->email ,
-   'password' => Hash::make($request->password),
-   'tel' => $request->tel ,
-   'ville' => $request->ville
-]);
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'tel' => $request->tel,
+        'ville' => $request->ville
+     ]);
 return redirect()->route('users.login')->with([
     'success' => 'Compte créé'
 ]);

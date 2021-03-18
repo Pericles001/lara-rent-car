@@ -25,7 +25,7 @@
         <div class="header h-50 bg-primary  rounded shadow-sm">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">Accueil</a>
+                    <a class="nav-link active text-white" aria-current="page" href="{{route('index')}}">Accueil</a>
                 </li>
                 @auth
                     <li class="nav-item">
