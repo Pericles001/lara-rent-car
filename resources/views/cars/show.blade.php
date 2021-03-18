@@ -72,7 +72,7 @@
                                                 Reserver
                                             </a>
 
-                                    </p>
+                                        </p>
                                     @endauth
                                 @else
                                     <button type="button" class="btn btn-warning">
