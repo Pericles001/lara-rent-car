@@ -68,7 +68,7 @@
                                         </p>
 
                                     @else <p>
-                                            <a type="button" href="#" class="btn btn-primary">
+                                            <a type="button" href="{{route('users.login')}}" class="btn btn-primary">
                                                 Reserver
                                             </a>
 

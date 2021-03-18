@@ -15,11 +15,11 @@ class CarController extends Controller
     public function index()
     {
 
-  //
+        //
          return view('cars.index')->with([
-             'cars'=>Car::all(),
-             'carsDispo'=>Car::whereDispo(1)->get()
-             ]);
+           'cars'=>Car::all(),
+         'carsDispo'=>Car::whereDispo(1)->get()
+        ]);
 
 
 
