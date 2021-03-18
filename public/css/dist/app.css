@@ -6,3 +6,7 @@ html {
 body div h3 #myLink {
   text-decoration: none;
 }
+body #disc {
+  background-color: transparent;
+  border: none;
+}

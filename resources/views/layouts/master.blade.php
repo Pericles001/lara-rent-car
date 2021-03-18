@@ -37,7 +37,7 @@
                     <li class="nav-item">
                         <form action="{{ route('users.logout') }}" method="post">
 
-                            <button type="submit" class="nav-link text-white">Deconnexion</button>
+                            <button id="disc" type="submit" class="nav-link text-white">Deconnexion</button>
                         </form>
                     </li>
                 @else
