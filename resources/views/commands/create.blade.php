@@ -6,6 +6,15 @@
     <div class="col-md-8">
         <div class="card border border-primary shadow-sm">
             <h3 class="card-header">Louer cette voiture</h3>
+            <div class="row my-3">
+<div class="col-md-12">
+
+</div>
+
+
+
+
+            </div>
             <div class="card-body">
                 <form action="{{route('commands.store')}}" method="post">
                    @csrf

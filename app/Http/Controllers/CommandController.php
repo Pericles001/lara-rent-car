@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Command;
 use Illuminate\Http\Request;
+use App\Models\Car;
 
 class CommandController extends Controller
 {
@@ -23,10 +24,10 @@ class CommandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
-        return view('commands.create');
+        return view('commands.create')->with('id', Car::findOrFail($id));
     }
 
     /**

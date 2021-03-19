@@ -26,7 +26,7 @@
 
         <div class="col-md-8">
 
-            <div class="border border-primary">
+            <div class="card border border-primary">
 
                 <h3 class="card-header">{{ $car->marque }}</h3>
                 <div class="card-img-top">
@@ -61,7 +61,7 @@
                                 @if ($car->dispo)
                                     @auth
                                         <p>
-                                            <a type="button" href="{{route('commands.create')}}" class="btn btn-primary">
+                                            <a type="button" href="{{route('command.create', $car->id)}}" class="btn btn-primary">
                                                 Reserver
                                             </a>
 
