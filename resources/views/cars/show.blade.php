@@ -61,15 +61,16 @@
                                 @if ($car->dispo)
                                     @auth
                                         <p>
-                                            <a type="button" href="{{route('command.create', $car->id)}}" class="btn btn-primary">
+                                            <a type="button" href="{{ route('command.create', $car->id) }}"
+                                                class="btn btn-primary">
                                                 Reserver
                                             </a>
 
                                         </p>
 
                                     @else <p>
-                                            <a type="button" href="{{route('users.login')}}" class="btn btn-primary">
-                                                Reserver
+                                            <a type="button" href="{{ route('users.login') }}" class="btn btn-primary">
+
                                             </a>
 
                                         </p>

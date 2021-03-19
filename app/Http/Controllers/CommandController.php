@@ -24,10 +24,14 @@ class CommandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id, Car $car)
     {
         //
-        return view('commands.create')->with('id', Car::findOrFail($id));
+        return view('commands.create')->with([
+            'id'=>Car::findOrFail($id),
+            'car'=> $car::all()
+            ]
+        );
     }
 
     /**
@@ -53,11 +57,10 @@ class CommandController extends Controller
             'dateL' => $request->dateL,
             'dateR' => $request->dateR,
             'prixTTC' => 300
-         ]);
-         return redirect()->route('cars.index')->with([
+        ]);
+        return redirect()->route('cars.index')->with([
             'success' => 'Commande ajoutée'
         ]);
-
     }
 
     /**
