@@ -61,7 +61,7 @@
                                 @if ($car->dispo)
                                     @auth
                                         <p>
-                                            <a type="button" href="#" class="btn btn-primary">
+                                            <a type="button" href="{{route('commands.create')}}" class="btn btn-primary">
                                                 Reserver
                                             </a>
 
