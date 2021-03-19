@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Command;
 use Illuminate\Http\Request;
 
@@ -26,6 +26,7 @@ class CommandController extends Controller
     public function create()
     {
         //
+        return view('commands.create');
     }
 
     /**
@@ -37,6 +38,25 @@ class CommandController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'car_id' => 'required',
+            'dateL' => 'required',
+            'dateR' => 'required',
+            'ville' => 'required'
+        ]);
+
+        Command::create([
+            'user_id' => auth()->user()->id,
+            'car_id' => $request->car_id,
+            'dateL' => $request->dateL,
+            'dateR' => $request->dateR,
+            'prixTTC' => 300
+         ]);
+         return redirect()->route('cars.index')->with([
+            'success' => 'Commande ajoutée'
+        ]);
+
     }
 
     /**
