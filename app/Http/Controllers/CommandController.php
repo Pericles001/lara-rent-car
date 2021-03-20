@@ -58,14 +58,17 @@ class CommandController extends Controller
         $dateRetour = new DateTime($request->dateR);
         $jours = date_diff($dateLocation, $dateRetour);
         $prixTtc = $car->prixJ * $jours->format('%d');
-        die($car->prixJ);
+
         Command::create([
 
             'user_id' => auth()->user()->id,
             'car_id' => $request->car_id,
             'dateL' => $request->dateL,
             'dateR' => $request->dateR,
-            'prixTTC' => 300
+            'prixTTC' =>   $prixTtc
+        ]);
+        $car->update([
+            'dispo' => 0
         ]);
         return redirect()->route('cars.index')->with([
             'success' => 'Commande ajoutée'
