@@ -57,7 +57,7 @@ class CommandController extends Controller
         $dateLocation = new DateTime($request->dateL);
         $dateRetour = new DateTime($request->dateR);
         $jours = date_diff($dateLocation, $dateRetour);
-        $prixTtc = $car->prixJ * $jours->format('%d');
+        $prixTtc = $car->prixJ*( $jours->format('%d'));
 
         Command::create([
 

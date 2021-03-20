@@ -29,7 +29,7 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">
+                        <a class="nav-link text-white" href="{{route('users.profile', auth()->user()->id)}}">
 
                             {{ auth()->user()->name }}
                         </a>

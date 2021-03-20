@@ -11,18 +11,18 @@
                         <div class="card">
 
                             <div class="card-img-top">
-                                <h3 class="text-info p-4">{{ $car->first()->marque }}</h3>
-                                <img src="{{ $car->first()->image }}" alt="" class="img-fluid m-2 rounded">
+                                <h3 class="text-info p-4">{{ $car->random()->marque }}</h3>
+                                <img src="{{ $car->random()->image }}" alt="" class="img-fluid m-2 rounded">
 
                             </div>
                             <div class="card-body">
                                 <p class="d-flex flex-row justify-content-start">
 
                                     <button type="button" class="btn btn-dark mx-1">
-                                        Type :<span class="badge bg-dark "> {{ $car->first()->type }}</span>
+                                        Type :<span class="badge bg-dark "> {{ $car->random()->type }}</span>
                                     </button>
                                     <button type="button" class="btn btn-danger mx-1">
-                                        Prix Journée :<span class="badge bg-secondary"> {{ $car->first()->prixJ }} £</span>
+                                        Prix Journée :<span class="badge bg-secondary"> {{ $car->random()->prixJ }} £</span>
                                     </button>
 
                                 </p>
@@ -53,7 +53,7 @@
                         aria-describedby="helpId" />
 
                     </div>
-                    <input type="hidden" name="car_id" value="{{$car->first()->id}}">
+                    <input type="hidden" name="car_id" value="{{$car->random()->id}}">
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
