@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use App\Models\Command;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use DateTime;
 
 class CommandController extends Controller
 {
@@ -27,9 +29,10 @@ class CommandController extends Controller
     public function create($id, Car $car)
     {
         //
-        return view('commands.create')->with([
-            'id'=>Car::findOrFail($id),
-            'car'=> $car::all()
+        return view('commands.create')->with(
+            [
+                'id' => Car::findOrFail($id),
+                'car' => $car::all()
             ]
         );
     }
@@ -38,20 +41,26 @@ class CommandController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
         $this->validate($request, [
-            'user_id' => 'required',
-            'car_id' => 'required',
+            'car_id' =>'required',
             'dateL' => 'required',
-            'dateR' => 'required',
-            'ville' => 'required'
+            'dateR' => 'required'
         ]);
 
+        $car = Car::findOrFail($request->car_id);
+        $dateLocation = new DateTime($request->dateL);
+        $dateRetour = new DateTime($request->dateR);
+        $jours = date_diff($dateLocation, $dateRetour);
+        $prixTtc = $car->prixJ * $jours->format('%d');
+        die($car->prixJ);
         Command::create([
+
             'user_id' => auth()->user()->id,
             'car_id' => $request->car_id,
             'dateL' => $request->dateL,

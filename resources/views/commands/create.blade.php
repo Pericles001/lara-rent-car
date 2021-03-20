@@ -8,10 +8,10 @@
                 <h3 class="card-header">Louer cette voiture</h3>
                 <div class="row my-3">
                     <div class="col-md-12">
-                        <div class="card border border-primary">
+                        <div class="card">
 
                             <div class="card-img-top">
-                                <h3 class="card-header">{{ $car->first()->marque }}</h3>
+                                <h3 class="text-info p-4">{{ $car->first()->marque }}</h3>
                                 <img src="{{ $car->first()->image }}" alt="" class="img-fluid m-2 rounded">
 
                             </div>
@@ -51,7 +51,9 @@
                     <label for="dateR">Date Retour</label>
                     <input type="date" name="dateR" id="" class="form-control" placeholder="Date de Fin..."
                         aria-describedby="helpId" />
-                </div>
+
+                    </div>
+                    <input type="hidden" name="car_id" value="{{$car->first()->id}}">
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
