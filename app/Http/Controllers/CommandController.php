@@ -70,7 +70,7 @@ class CommandController extends Controller
         $car->update([
             'dispo' => 0
         ]);
-        return redirect()->route('cars.index')->with([
+        return redirect()->route('users.profile', auth()->user()->id)->with([
             'success' => 'Commande ajoutée'
         ]);
     }

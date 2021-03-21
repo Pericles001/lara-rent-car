@@ -45,7 +45,7 @@ class User extends Authenticatable
     ];
 
 public function commands(){
-    return $this->hasMany(Command::class)->order_by('created_at', 'DESC');
+    return $this->hasMany(Command::class)->orderBy('created_at', 'DESC');
 }
 
 
