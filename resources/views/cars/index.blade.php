@@ -9,7 +9,8 @@
                     Recherche
                 </h3>
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="{{ route('cars.index') }}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="search">Recherche</label>
                             <input type="text" name="search" id="" class="form-control" placeholder="Recherche..." />
@@ -28,7 +29,7 @@
 
             <div class="border border-primary">
 
-                <h3 class="card-header">Toutes les voitures</h3>
+                <h3 class="card-header">{{ $title}}<span class="badge bg-primary mx-2">{{$count}}</span></h3>
                 <div class="card-body">
                     @foreach ($cars as $car)
 
@@ -41,7 +42,7 @@
 
                             <div class="media-body">
                                 <h3 class="text-info">
-                                    <a id="myLink" href="{{route('cars.show', $car->id)}}" class="btn btn-link">
+                                    <a id="myLink" href="{{ route('cars.show', $car->id) }}" class="btn btn-link">
                                         <button type="button" class="btn btn-primary">
                                             Marque :<span class="badge bg-primary"> {{ $car->marque }}</span>
                                         </button>
@@ -65,7 +66,7 @@
                                         </button>
                                     @else
                                         <button type="button" class="btn btn-warning">
-                                           Reservé<span class="badge bg-warning"></span>
+                                            Reservé<span class="badge bg-warning"></span>
                                         </button>
 
                                     @endif
@@ -77,9 +78,14 @@
                         <hr>
 
                     @endforeach
-
+                </div>
+                <div class="card-footer ">
+                  <div class="d-flex justify-content-center">
+                    {!! $cars->links() !!}
+                  </div>
                 </div>
             </div>
+           
         </div>
 
 

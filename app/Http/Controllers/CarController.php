@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Car;
 use Illuminate\Http\Request;
 
@@ -11,17 +12,25 @@ class CarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         //
-         return view('cars.index')->with([
-           'cars'=>Car::all(),
-         'carsDispo'=>Car::whereDispo(1)->get()
-        ]);
-
-
-
+        if ($request->search !== null){
+            $cars = Car::orderBy('created_at', 'DESC')->whereMarque($request->search)->simplePaginate(5);
+            return view('cars.index')->with([
+                'cars' => $cars,
+                'title' => "Resultat trouvé pour : ".$request->search ,
+                 'count' => $cars->count()
+            ]);
+        } else {
+            $cars = Car::all();
+            return view('cars.index')->with([
+                'cars' =>Car::simplePaginate(5),
+                'title' => "Toutes les voitures" ,
+                'count' => $cars->count()
+            ]);
+        }
     }
 
     /**
