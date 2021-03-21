@@ -48,5 +48,8 @@ public function commands(){
     return $this->hasMany(Command::class)->orderBy('created_at', 'DESC');
 }
 
+public function isAdmin(){
+    return $this->admin ? true : false;
+}
 
 }

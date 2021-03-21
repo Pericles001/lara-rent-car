@@ -34,9 +34,18 @@
                             {{ auth()->user()->name }}
                         </a>
                     </li>
+                    @if (auth()->user()->isAdmin())
                     <li class="nav-item">
-                        <form action="{{ route('users.logout') }}" method="post">
-@csrf
+                        <a class="nav-link text-white" href="#">
+
+                        Admin
+                        </a>
+                    </li>
+                    @endif
+
+                    <li class="nav-item">
+                        <form action="{{ route('users.logout')}}" method="post">
+                            @csrf
                             <button id="disc" type="submit" class="nav-link text-white">Deconnexion</button>
                         </form>
                     </li>
