@@ -15,10 +15,9 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
             $table->string('marque');
             $table->string('model');
-            $table->string('type'); 
+            $table->string('type');
             $table->string('prixJ');
              $table->boolean('dispo')->default(0);
              $table->string('image')->default('http://lorempixel.com/200/200/');

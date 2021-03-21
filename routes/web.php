@@ -23,5 +23,5 @@ Route::post('/auth', 'App\Http\Controllers\UsersController@auth')->name('users.a
 Route::post('/logout', 'App\Http\Controllers\UsersController@logout')->name('users.logout');
 Route::get('/register', 'App\Http\Controllers\UsersController@create')->name('users.create');
 Route::post('/register', 'App\Http\Controllers\UsersController@register')->name('users.register');
-
 Route::get('/user/{id}/profile', 'App\Http\Controllers\UsersController@show')->name('users.profile');
+Route::get('/admins','App\Http\Controllers\AdminsController@index')->name('admins.index');
