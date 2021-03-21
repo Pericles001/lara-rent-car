@@ -38,13 +38,16 @@
                             @endif
                             </td>
                             <td>
-                                <img class="img-fluid"  src="{{$car->image}}" alt="" width="60" height="60" srcset="">
+                                <img class="img-fluid rounded"  src="{{$car->image}}" alt="" width="60" height="60" srcset="">
                             </td>
                             <td></td>
                         </tr>
                            @endforeach
                         </tbody>
                     </table>
+                   <div class="justify-content-center">
+                    {!! $cars->links() !!}
+                   </div>
                 </div>
             </div>
         </div>

@@ -9,6 +9,6 @@ class AdminsController extends Controller
 {
     //
     public function index(){
-        return view('admins.index')->with('cars', Car::orderBy('created_at', 'DESC')->paginate(10));
+        return view('admins.index')->with('cars', Car::orderBy('created_at', 'DESC')->simplePaginate(5));
     }
 }
