@@ -16,18 +16,18 @@ class CarController extends Controller
     {
 
         //
-        if ($request->search !== null){
+        if ($request->search !== null) {
             $cars = Car::orderBy('created_at', 'DESC')->whereMarque($request->search)->simplePaginate(5);
             return view('cars.index')->with([
                 'cars' => $cars,
-                'title' => "Resultat trouvé pour : ".$request->search ,
-                 'count' => $cars->count()
+                'title' => "Resultat trouvé pour : " . $request->search,
+                'count' => $cars->count()
             ]);
         } else {
             $cars = Car::all();
             return view('cars.index')->with([
-                'cars' =>Car::simplePaginate(5),
-                'title' => "Toutes les voitures" ,
+                'cars' => Car::simplePaginate(5),
+                'title' => "Toutes les voitures",
                 'count' => $cars->count()
             ]);
         }
@@ -53,30 +53,30 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //
-$this->validate($request, [
-    'marque'=> 'required',
-    'model'=>'required',
-    'type'=>'required',
-    'prixJ'=>'required',
-    'dispo'=>'required',
-    'image'=>'required'
-]);
-$name= '';
-if($request->hasFile('image')){
-    $file = $request->file('image');
-    $name= $file->getClientOrOriginalName();
-    $file->move(public_path('images'), $name);
+        $this->validate($request, [
+            'marque' => 'required',
+            'model' => 'required',
+            'type' => 'required',
+            'prixJ' => 'required',
+            'dispo' => 'required',
+            'image' => 'required'
+        ]);
+        $name = '';
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $name = $file->getClientOriginalName();
+            $file->move(public_path('images'), $name);
 
-}
-Car::create([
-    'marque'=> $request->marque,
-    'model'=>$request->model,
-    'type'=>$request->type,
-    'prixJ'=>$request->prixJ,
-    'dispo'=>$request->dispo,
-    'image'=>$request->$name
-]);
-return redirect()->route('admins.index')->withSuccess('voiture ajoutée');
+        }
+        Car::create([
+            'marque' => $request->marque,
+            'model' => $request->model,
+            'type' => $request->type,
+            'prixJ' => $request->prixJ,
+            'dispo' => $request->dispo,
+            'image' => 'images/' .$name
+        ]);
+        return redirect()->route('admins.index')->withSuccess('voiture ajoutée');
     }
 
     /**

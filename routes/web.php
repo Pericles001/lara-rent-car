@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\CarController@index')->name('index');
 Route::resource('/cars', 'App\Http\Controllers\CarController');
 Route::post('/cars', 'App\Http\Controllers\CarController@index')->name('cars.index');
+Route::post('/add/car', 'App\Http\Controllers\CarController@store')->name('cars.store');
 Route::resource('/commands', 'App\Http\Controllers\CommandController');
 Route::get('/commands/{id}/create', 'App\Http\Controllers\CommandController@create')->name('command.create');
 Route::get('/login', 'App\Http\Controllers\UsersController@login')->name('users.login');
