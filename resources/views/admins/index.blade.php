@@ -47,20 +47,19 @@
                                         <img class="img-fluid rounded" src="{{ $car->image }}" alt="" width="60"
                                             height="60" srcset="">
                                     </td>
-                                    <td> <a href="{{route('cars.edit',$car->id)}}"  class="btn btn-warning" >
+                             <td class="d-flex flex-row justify-content-center"> <a href="{{route('cars.edit',$car->id)}}"  class="btn btn-warning mr-2" >
                                         <i class="fa fa-edit"> </i>
                                     </a>
 
-                                    <a href="#"  class="btn btn-danger" role="button">
-                                        <i class="fa fa-trash"> </i>
-                                    </a>
+                                 <form action="{{route('cars.destroy', $car->id)}}" method="post">
+                                @csrf
+                                {{method_field('delete')}}
+                                <button type="submit"  class="btn btn-danger" role="button">
+                                    <i class="fa fa-trash"> </i>
+                                </button>
 
-
-
-
-
-
-                                </td>
+                                </form>
+                             </td>
                                 </tr>
                             @endforeach
                         </tbody>

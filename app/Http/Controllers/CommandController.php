@@ -18,7 +18,7 @@ class CommandController extends Controller
     public function index()
     {
         //
-        return view('commands.index')->with(['commands' => Command::all()]);
+
     }
 
     /**
@@ -120,4 +120,20 @@ class CommandController extends Controller
     {
         //
     }
+
+
+
+public function deleteUserCommands($commandId,$carId ){
+    $command = Command::findOrFail($commandId);
+    if($command->car_id == $carId){
+        $command->delete();
+        return redirect()->route('users.profile', auth()->user()->id)->with([
+            'success' => 'Commande supprimée'
+        ]);
+    }
+
+
+}
+
+
 }

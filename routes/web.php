@@ -19,6 +19,7 @@ Route::post('/cars', 'App\Http\Controllers\CarController@index')->name('cars.ind
 Route::post('/add/car', 'App\Http\Controllers\CarController@store')->name('cars.store');
 Route::resource('/commands', 'App\Http\Controllers\CommandController');
 Route::get('/commands/{id}/create', 'App\Http\Controllers\CommandController@create')->name('command.create');
+Route::delete('/commands/{commandId}/{carId}/delete', 'App\Http\Controllers\CommandController@deleteUserCommands')->name('commands.delete');
 Route::get('/login', 'App\Http\Controllers\UsersController@login')->name('users.login');
 Route::post('/auth', 'App\Http\Controllers\UsersController@auth')->name('users.auth');
 Route::post('/logout', 'App\Http\Controllers\UsersController@logout')->name('users.logout');
