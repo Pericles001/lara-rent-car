@@ -53,6 +53,30 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //
+$this->validate($request, [
+    'marque'=> 'required',
+    'model'=>'required',
+    'type'=>'required',
+    'prixJ'=>'required',
+    'dispo'=>'required',
+    'image'=>'required'
+]);
+$name= '';
+if($request->hasFile('image')){
+    $file = $request->file('image');
+    $name= $file->getClientOrOriginalName();
+    $file->move(public_path('images'), $name);
+
+}
+Car::create([
+    'marque'=> $request->marque,
+    'model'=>$request->model,
+    'type'=>$request->type,
+    'prixJ'=>$request->prixJ,
+    'dispo'=>$request->dispo,
+    'image'=>$request->$name
+]);
+return redirect()->route('admins.index')->withSuccess('voiture ajoutée');
     }
 
     /**
