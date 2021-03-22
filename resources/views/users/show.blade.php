@@ -45,7 +45,17 @@
                             <td>{{ $command->dateL }}</td>
                             <td>{{ $command->dateR }}</td>
                             <td>{{ $command->prixTTC }}</td>
+                            <td class="d-flex flex-row justify-content-center">
 
+                                <form action="{{route('commands.delete', [$command->id, $command->car_id])}}">
+                               @csrf
+                             
+                               <button type="submit"  class="btn btn-danger" role="button">
+                                   <i class="fa fa-trash"> </i>
+                               </button>
+
+                               </form>
+                            </td>
 
                         </tr>
 
