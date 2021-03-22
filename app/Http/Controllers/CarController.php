@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use Illuminate\Http\Request;
 
+
 class CarController extends Controller
 {
     /**
@@ -66,7 +67,6 @@ class CarController extends Controller
             $file = $request->image;
             $name = $file->getClientOriginalName();
             $file->move(public_path('images'), $name);
-
         }
         Car::create([
             'marque' => $request->marque,
@@ -74,7 +74,7 @@ class CarController extends Controller
             'type' => $request->type,
             'prixJ' => $request->prixJ,
             'dispo' => $request->dispo,
-            'image' => '/ images/' .$name
+            'image' => '/ images/' . $name
         ]);
         return redirect()->route('admins.index')->withSuccess('voiture ajoutée');
     }
@@ -114,7 +114,29 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         //
-
+        $this->validate($request, [
+            'marque' => 'required',
+            'model' => 'required',
+            'type' => 'required',
+            'prixJ' => 'required',
+            'dispo' => 'required',
+        ]);
+        $image = $car->image;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = $file->getClientOriginalName();
+            $file->move(public_path('images'), $name);
+            $image = '/images/' . $name;
+        }
+        $car->update([
+            'marque' => $request->marque,
+            'model' => $request->model,
+            'type' => $request->type,
+            'prixJ' => $request->prixJ,
+            'dispo' => $request->dispo,
+            'image' => $image
+        ]);
+        return redirect()->route('admins.index')->withSuccess('voiture modifiée');
     }
 
     /**

@@ -9,6 +9,7 @@
                     <div class="card-body">
                         <form action="{{ route('cars.update', $car->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            {{ method_field('put') }}
                             <div class="form-group">
                                 <label for="">Marque*</label>
                                 <input type="text" name="marque" class="form-control" placeholder="Marque..."
@@ -28,7 +29,8 @@
                                 <select name="type" id="" class="form-control">
                                     <option value="" selected disabled>Veuillez choisir un type</option>
                                     <option value="Diesel" {{ $car->type == 'Diesel' ? 'selected' : '' }}>Diesel</option>
-                                    <option value="Essence" {{ $car->type == 'Essence' ? 'selected' : '' }}>Essence</option>
+                                    <option value="Essence" {{ $car->type == 'Essence' ? 'selected' : '' }}>Essence
+                                    </option>
                                 </select>
                             </div>
 
@@ -44,16 +46,17 @@
                                 <select name="dispo" id="" class="form-control">
                                     <option value="" selected disabled>Veuillez choisir un type</option>
                                     <option value="1" {{ $car->dispo ? 'selected' : '' }}>oui</option>
-                                    <option value="0" {{!$car->dispo ? 'selected' : '' }}>non</option>
+                                    <option value="0" {{ !$car->dispo ? 'selected' : '' }}>non</option>
                                 </select>
                             </div>
 
 
 
                             <div class="form-group">
-                             <div class="form-group">
-                                <img src="{{ $car->image }}" width="100" height="100" alt="" class="img-fluid rounded">
-                             </div>
+                                <div class="form-group">
+                                    <img src="{{ $car->image }}" width="100" height="100" alt=""
+                                        class="img-fluid rounded">
+                                </div>
 
                                 <label for="">Photo*</label>
                                 <input type="file" name="image" class="form-control" aria-describedby="helpId" />
