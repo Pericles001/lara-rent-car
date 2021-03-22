@@ -74,7 +74,7 @@ class CarController extends Controller
             'type' => $request->type,
             'prixJ' => $request->prixJ,
             'dispo' => $request->dispo,
-            'image' => 'images/' .$name
+            'image' => '/ images/' .$name
         ]);
         return redirect()->route('admins.index')->withSuccess('voiture ajoutée');
     }
@@ -101,6 +101,7 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         //
+        return view('cars.edit')->with('car', $car);
     }
 
     /**
@@ -113,6 +114,7 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         //
+
     }
 
     /**

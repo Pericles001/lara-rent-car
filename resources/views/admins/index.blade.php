@@ -47,7 +47,20 @@
                                         <img class="img-fluid rounded" src="{{ $car->image }}" alt="" width="60"
                                             height="60" srcset="">
                                     </td>
-                                    <td></td>
+                                    <td> <a href="{{route('cars.edit',$car->id)}}"  class="btn btn-warning" >
+                                        <i class="fa fa-edit"> </i>
+                                    </a>
+
+                                    <a href="#"  class="btn btn-danger" role="button">
+                                        <i class="fa fa-trash"> </i>
+                                    </a>
+
+
+
+
+
+
+                                </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -109,8 +122,8 @@
                             <label for="">Disponible*</label>
                             <select name="dispo" id="" class="form-control">
                                 <option value="" selected disabled>Veuillez choisir un type</option>
-                                <option value="0">oui</option>
-                                <option value="1">non</option>
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
                             </select>
                         </div>
 
