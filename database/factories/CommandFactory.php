@@ -30,7 +30,7 @@ class CommandFactory extends Factory
             'dateL' => $this->faker->dateTime(),
             'dateR' =>  $this->faker->dateTime(),
             'prixTTC' => $this->faker->randomDigit(1000, 5000),
-            'notes' =>  $this->faker->text(300)
+            
             ];
     }
 }

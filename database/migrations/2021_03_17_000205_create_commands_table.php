@@ -20,7 +20,6 @@ class CreateCommandsTable extends Migration
             $table->datetime('dateL');
             $table->datetime('dateR');
             $table->string('prixTTC');
-            $table->text('notes');
             $table->timestamps();
         });
     }

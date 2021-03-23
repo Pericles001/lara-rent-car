@@ -7,7 +7,7 @@
         <div class="card border border-primary shadow-sm">
             <h3 class="card-header">Inscription</h3>
             <div class="card-body">
-                <form action="{{route('commands.store')}}" method="post">
+                <form action="{{route('users.create')}}" method="post">
                    @csrf
                     <div class="form-group">
                         <label for="name">Nom & Prenom</label>
