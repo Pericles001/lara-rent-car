@@ -14,9 +14,10 @@ Lara-rent-car is an app built with laravel to provide car rental system managmen
 ## configuration
 clone or import, then execute in a command prompt the following : 
          <p align="center">
-          composer install
-            npm install
-            cp .env.example .env
+          <p>composer install</p>
+          <p>npm install</p>
+           <p>
+      cp .env.example .env</p>
          </p>       
 Don't forget to create your own database and change .env configurations to match with your own database. 
 
