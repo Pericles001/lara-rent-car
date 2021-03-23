@@ -11,6 +11,16 @@
 Lara-rent-car is an app built with laravel to provide car rental system managment . 
 
 
+## configuration
+clone or import, then execute in a command prompt the following : 
+         <p align="center">
+          composer install
+            npm install
+            cp .env.example .env
+         </p>       
+Don't forget to create your own database and change .env configurations to match with your own database. 
+
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
