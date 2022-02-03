@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Spatie\WelcomeNotification\WelcomesNewUsers;
+use App\Http\Controllers\Auth\MyWelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +28,10 @@ Route::get('/register', 'App\Http\Controllers\UsersController@create')->name('us
 Route::post('/register', 'App\Http\Controllers\UsersController@register')->name('users.register');
 Route::get('/user/{id}/profile', 'App\Http\Controllers\UsersController@show')->name('users.profile');
 Route::get('/admins','App\Http\Controllers\AdminsController@index')->name('admins.index');
+
+
+
+Route::group(['middleware' => ['web', WelcomesNewUsers::class,]], function () {
+    Route::get('welcome/{user}', [MyWelcomeController::class, 'showWelcomeForm'])->name('welcome');
+    Route::post('welcome/{user}', [MyWelcomeController::class, 'savePassword']);
+});
