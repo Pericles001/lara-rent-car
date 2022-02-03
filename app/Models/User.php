@@ -52,4 +52,6 @@ public function isAdmin(){
     return $this->admin ? true : false;
 }
 
+public function
+
 }

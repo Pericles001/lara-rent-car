@@ -12,11 +12,11 @@ class UsersController extends Controller
     //
     public function show($id)
     {
-   
+
 
         return view('users.show')->with([
             'id' => User::findOrFail($id),
-          
+
         ]);
     }
 
@@ -43,8 +43,13 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'tel' => $request->tel,
-            'ville' => $request->ville
+            'ville' => $request->ville,
+            $expiresAt = now()->addDay(),
+            $user->sendWelcomeNotification($expiresAt)
         ]);
+
+
+
         return redirect()->route('users.login')->with([
             'success' => 'Compte créé'
         ]);
