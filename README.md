@@ -22,6 +22,7 @@ clone or import, then execute in a command prompt the following :
 Don't forget to create your own database and change .env configurations to match with your own database. 
 
 
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
